@@ -24,11 +24,12 @@ jobs:
         run: npm ci
 
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        # run: npx playwright install --with-deps
+        run: npx playwright install chromium --with-deps
 
       - name: Run Playwright tests
-        # run: npx playwright test --project=chromium
-        run: npx playwright test
+        run: npx playwright test --project=chromium
+        # run: npx playwright test
 
       - name: Upload Playwright report
         if: always()
