@@ -54,7 +54,7 @@ export async function checkCartPage(page: Page): Promise<void> {
 }
 
 export async function continueShopping(page: Page): Promise<void> {
-    await test.step('Check cart page', async () => {
+    await test.step('Click continue shopping', async () => {
         const cartPage = new SauceDemoCart(page);
 
         await cartPage.clickContinueButton();

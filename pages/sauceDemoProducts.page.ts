@@ -22,7 +22,7 @@ export class SauceDemoProducts {
     async checkProductPage(): Promise<void> {
         await expect(this.title).toBeVisible();
         await expect(this.product.first()).toBeVisible();
-        await expect(this.cartBadge).not.toBeVisible()
+        await expect(this.cartBadge).not.toBeVisible();
     }
 
     async addToCart(nthElement: number): Promise<void> {
@@ -31,7 +31,7 @@ export class SauceDemoProducts {
     }
 
     async checkAddedProduct(): Promise<void> {
-        await expect(this.cartBadge).toBeVisible()
+        await expect(this.cartBadge).toBeVisible();
     }
 
     async goToShoppingCart(): Promise<void> {

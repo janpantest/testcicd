@@ -16,7 +16,7 @@ export class SauceDemoCart {
         this.checkoutButton = this.page.locator('button[id*="checkout"]');
         this.removeFromCartButton = this.page.locator('button[id*="remove"]');
         this.continueShoppingButton = this.page.locator('button[id*="continue"]');
-        this.cartBadge = this.page.locator('span.shopping_cart_badge')
+        this.cartBadge = this.page.locator('span.shopping_cart_badge');
     }
 
     async checkCartPage(): Promise<void> {
