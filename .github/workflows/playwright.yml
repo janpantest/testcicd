@@ -11,6 +11,10 @@ jobs:
     timeout-minutes: 30
     runs-on: ubuntu-latest
 
+    env:
+      USERNAME_PREFIX: ${{ secrets.SAUCE_USERNAME }}
+      PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

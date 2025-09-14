@@ -6,7 +6,9 @@ dotenv.config();
 
 const userName = `${process.env.SAUCE_USERNAME}`;
 const password = process.env.SAUCE_PASSWORD!;
-const url = process.env.SAUCE_URL!;
+// const url = process.env.SAUCE_URL!;
+const url = 'https://www.saucedemo.com/';
+
 console.info(userName + '\n' + password + '\n' + url);
 
 test('Sauce demo WF', { tag: '@sauce' }, async ({ page }) => {
