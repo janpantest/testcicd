@@ -1,0 +1,38 @@
+import { Page, test } from "@playwright/test";
+import { SauceDemoHome } from "../pages/sauceDemoHome.page";
+import { SauceDemoProducts } from "../pages/sauceDemoProducts.page";
+
+export async function checkSaucedemoHome(page: Page, url: string): Promise<void> {
+    await test.step('Check home page', async () => {
+        const sauceHome = new SauceDemoHome(page);
+
+        await sauceHome.goToHome(url);
+        await sauceHome.checkHomePage();
+    })
+}
+
+export async function logonToSauce(page: Page, username: string, password: string): Promise<void> {
+    await test.step('Log in', async () => {
+        const sauceHome = new SauceDemoHome(page);
+
+        await sauceHome.login(username, password);
+    })
+}
+
+export async function checkProductPage(page: Page): Promise<void> {
+    await test.step('Check product page', async () => {
+        const sauceProducts = new SauceDemoProducts(page);
+
+        await sauceProducts.checkProductPage();
+    })
+}
+
+export async function addProductToCart(page: Page): Promise<void> {
+    await test.step('Add to cart', async () => {
+        const sauceProducts = new SauceDemoProducts(page);
+
+        await sauceProducts.addToCart(0);
+        await sauceProducts.checkAddedProduct()
+    })
+}
+
