@@ -9,8 +9,6 @@ const password = process.env.SAUCE_PASSWORD!;
 // const url = process.env.SAUCE_URL!;
 const url = 'https://www.saucedemo.com/';
 
-console.info(userName + '\n' + password + '\n' + url);
-
 test('Sauce demo WF', { tag: '@sauce' }, async ({ page }) => {
     await sauceDemoSteps.checkSaucedemoHome(page, url);
     await sauceDemoSteps.logonToSauce(page, userName, password)
