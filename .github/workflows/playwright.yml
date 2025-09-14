@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      USERNAME_PREFIX: ${{ secrets.SAUCE_USERNAME }}
-      PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
+      SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+      SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
 
     steps:
       - name: Checkout repository
