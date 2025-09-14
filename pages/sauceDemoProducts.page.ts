@@ -1,7 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { firstRunValues, secondRunValues } from '../helpers/constants';
-import { clickIfElementClickable, isButtonClickable } from '../helpers/helpers';
-
+ 
 export class SauceDemoProducts {
     readonly page: Page;
     readonly title: Locator;
@@ -9,6 +7,7 @@ export class SauceDemoProducts {
     readonly addToCartButton: Locator;
     readonly removeFromCartButton: Locator;
     readonly cartBadge: Locator;
+    readonly cartLink: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -16,7 +15,8 @@ export class SauceDemoProducts {
         this.product = this.page.locator('div.inventory_item_name');
         this.addToCartButton = this.page.locator('button[id*="add"]');
         this.removeFromCartButton = this.page.locator('button[id*="remove"]');
-        this.cartBadge = this.page.locator('span.shopping_cart_badge')
+        this.cartBadge = this.page.locator('span.shopping_cart_badge');
+        this.cartLink = this.page.locator('[data-test="shopping-cart-link"]');
     }
 
     async checkProductPage(): Promise<void> {
@@ -32,5 +32,9 @@ export class SauceDemoProducts {
 
     async checkAddedProduct(): Promise<void> {
         await expect(this.cartBadge).toBeVisible()
+    }
+
+    async goToShoppingCart(): Promise<void> {
+        await this.cartLink.click();
     }
 }
