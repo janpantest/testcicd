@@ -15,6 +15,10 @@ test('Sauce demo WF', { tag: '@sauce' }, async ({ page }) => {
 
     await sauceDemoSteps.checkProductPage(page);
     await sauceDemoSteps.addProductToCart(page);
+    await sauceDemoSteps.goToShoppingCart(page);
+
+    await sauceDemoSteps.checkCartPage(page);
+    await sauceDemoSteps.continueShopping(page);
 });
 
 

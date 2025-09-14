@@ -9,6 +9,7 @@
     "search": "npx playwright test --project=chromium --headed  --workers=1 --grep @searchBook",
     "detail": "npx playwright test --project=chromium --headed  --workers=1 --grep @getDetail",
     "pagination": "npx playwright test --project=chromium --headed  --workers=1 --grep @pagination",
+    "shopping": "npx playwright test --project=chromium --headed  --workers=1 --grep @sauce",
     "runReport": "npx playwright show-report"
   },
   "keywords": [],

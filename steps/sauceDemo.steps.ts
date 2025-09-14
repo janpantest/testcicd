@@ -1,6 +1,7 @@
 import { Page, test } from "@playwright/test";
 import { SauceDemoHome } from "../pages/sauceDemoHome.page";
 import { SauceDemoProducts } from "../pages/sauceDemoProducts.page";
+import { SauceDemoCart } from "../pages/sauceDemoCart.page";
 
 export async function checkSaucedemoHome(page: Page, url: string): Promise<void> {
     await test.step('Check home page', async () => {
@@ -36,3 +37,26 @@ export async function addProductToCart(page: Page): Promise<void> {
     })
 }
 
+export async function goToShoppingCart(page: Page): Promise<void> {
+    await test.step('Go to to cart', async () => {
+        const sauceProducts = new SauceDemoProducts(page);
+
+        await sauceProducts.goToShoppingCart()
+    })
+}
+
+export async function checkCartPage(page: Page): Promise<void> {
+    await test.step('Check cart page', async () => {
+        const cartPage = new SauceDemoCart(page);
+
+        await cartPage.checkCartPage();
+    })
+}
+
+export async function continueShopping(page: Page): Promise<void> {
+    await test.step('Click continue shopping', async () => {
+        const cartPage = new SauceDemoCart(page);
+
+        await cartPage.clickContinueButton();
+    })
+}
