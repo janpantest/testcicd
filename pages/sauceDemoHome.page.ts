@@ -41,7 +41,7 @@ export class SauceDemoHome {
 
     async compareScreenshots(screenshotType: 'OK' | 'false'): Promise<void> {
         const screenshot = await this.page.screenshot();
-        (screenshotType === 'OK') ? expect(screenshot).toMatchSnapshot('reference.png', { maxDiffPixels: 500 }) : expect(screenshot).toMatchSnapshot('reference.png', { maxDiffPixels: 500 });
+        (screenshotType === 'OK') ? expect(screenshot).toMatchSnapshot('reference.png', { maxDiffPixels: 500 }) : expect(screenshot).not.toMatchSnapshot('falseReference.png', { maxDiffPixels: 500 });
         // expect(screenshot).toMatchSnapshot('falseReference.png',  { maxDiffPixels: 500 });
         // expect(screenshot).toMatchSnapshot('falseReference.png');
     }
