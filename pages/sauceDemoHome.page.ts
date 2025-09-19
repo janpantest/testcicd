@@ -1,6 +1,4 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { firstRunValues, secondRunValues } from '../helpers/constants';
-import { clickIfElementClickable, isButtonClickable } from '../helpers/helpers';
 
 export class SauceDemoHome {
     readonly page: Page;
@@ -43,11 +41,8 @@ export class SauceDemoHome {
 
     async compareScreenshots(): Promise<void> {
         const screenshot = await this.page.screenshot();
-        // const referenceImagePath = './reference-screenshot/reference.png';
-        // const referenceImagePath = './reference-screenshot/falseReference.png';
         expect(screenshot).toMatchSnapshot('reference.png', { maxDiffPixels: 500 });
         // expect(screenshot).toMatchSnapshot('falseReference.png',  { maxDiffPixels: 500 });
         // expect(screenshot).toMatchSnapshot('falseReference.png');
-        // expect(screenshot).toMatchSnapshot(referenceImagePath);
     }
 }
