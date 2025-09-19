@@ -1,6 +1,4 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { firstRunValues, secondRunValues } from '../helpers/constants';
-import { clickIfElementClickable, isButtonClickable } from '../helpers/helpers';
 
 export class SauceDemoHome {
     readonly page: Page;
@@ -33,5 +31,18 @@ export class SauceDemoHome {
         await this.usernameInput.fill(username);
         await this.passwordInput.fill(password);
         await this.loginButton.click();
+    }
+
+    // async createScreenshot(): Promise<Buffer> {
+    // async createScreenshot(): Promise<any> {
+    //     const screenshot = await this.page.screenshot();
+    //     return screenshot;
+    // }
+
+    async compareScreenshots(): Promise<void> {
+        const screenshot = await this.page.screenshot();
+        expect(screenshot).toMatchSnapshot('reference.png', { maxDiffPixels: 500 });
+        // expect(screenshot).toMatchSnapshot('falseReference.png',  { maxDiffPixels: 500 });
+        // expect(screenshot).toMatchSnapshot('falseReference.png');
     }
 }

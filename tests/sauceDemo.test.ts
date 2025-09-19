@@ -1,6 +1,10 @@
 import { test } from '@playwright/test';
 import dotenv from 'dotenv'
 import * as sauceDemoSteps from '../steps/sauceDemo.steps';
+import path from 'path';
+
+// const allureResultsPath = path.resolve(__dirname, '..', 'allure-results');
+// console.info(allureResultsPath);
 
 dotenv.config();
 
@@ -11,7 +15,8 @@ const url = 'https://www.saucedemo.com/';
 
 test('Sauce demo WF', { tag: '@sauce' }, async ({ page }) => {
     await sauceDemoSteps.checkSaucedemoHome(page, url);
-    await sauceDemoSteps.logonToSauce(page, userName, password)
+    await sauceDemoSteps.compareScreenshots(page);
+    await sauceDemoSteps.logonToSauce(page, userName, password);
 
     await sauceDemoSteps.checkProductPage(page);
     await sauceDemoSteps.addProductToCart(page);
