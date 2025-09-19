@@ -34,4 +34,20 @@ export class SauceDemoHome {
         await this.passwordInput.fill(password);
         await this.loginButton.click();
     }
+
+    // async createScreenshot(): Promise<Buffer> {
+    // async createScreenshot(): Promise<any> {
+    //     const screenshot = await this.page.screenshot();
+    //     return screenshot;
+    // }
+
+    async compareScreenshots(): Promise<void> {
+        const screenshot = await this.page.screenshot();
+        // const referenceImagePath = './reference-screenshot/reference.png';
+        // const referenceImagePath = './reference-screenshot/falseReference.png';
+        expect(screenshot).toMatchSnapshot('reference.png', { maxDiffPixels: 500 });
+        // expect(screenshot).toMatchSnapshot('falseReference.png',  { maxDiffPixels: 500 });
+        // expect(screenshot).toMatchSnapshot('falseReference.png');
+        // expect(screenshot).toMatchSnapshot(referenceImagePath);
+    }
 }

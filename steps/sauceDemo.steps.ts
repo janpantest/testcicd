@@ -60,3 +60,11 @@ export async function continueShopping(page: Page): Promise<void> {
         await cartPage.clickContinueButton();
     })
 }
+
+export async function compareScreenshots(page: Page): Promise<void> {
+    await test.step('Compare screenshots', async () => {
+        const sauceHome = new SauceDemoHome(page);
+
+        await sauceHome.compareScreenshots();
+    })
+}
