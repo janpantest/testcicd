@@ -15,7 +15,8 @@ const url = 'https://www.saucedemo.com/';
 
 test('Sauce demo WF', { tag: '@sauce' }, async ({ page }) => {
     await sauceDemoSteps.checkSaucedemoHome(page, url);
-    await sauceDemoSteps.compareScreenshots(page);
+    await sauceDemoSteps.compareScreenshots(page, 'OK');
+    await sauceDemoSteps.compareScreenshots(page, 'false');
     await sauceDemoSteps.logonToSauce(page, userName, password);
 
     await sauceDemoSteps.checkProductPage(page);

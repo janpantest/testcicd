@@ -61,10 +61,10 @@ export async function continueShopping(page: Page): Promise<void> {
     })
 }
 
-export async function compareScreenshots(page: Page): Promise<void> {
+export async function compareScreenshots(page: Page, screenshotType: 'OK' | 'false'): Promise<void> {
     await test.step('Compare screenshots', async () => {
         const sauceHome = new SauceDemoHome(page);
 
-        await sauceHome.compareScreenshots();
+        await sauceHome.compareScreenshots(screenshotType);
     })
 }
