@@ -15,7 +15,7 @@ export class DemoqaHomePage {
 
     constructor(page: Page) {
         this.page = page;
-        this.logoHome = this.page.locator('div#app header a');
+        this.logoHome = this.page.locator('header a');
         this.inputBox = this.page.locator('input#searchBox');
         this.result = this.page.locator('span a');
         this.dropdown = this.page.getByLabel('rows per page');

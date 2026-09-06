@@ -10,8 +10,8 @@ dotenv.config();
 
 const userName = `${process.env.SAUCE_USERNAME}`;
 const password = process.env.SAUCE_PASSWORD!;
-// const url = process.env.SAUCE_URL!;
-const url = 'https://www.saucedemo.com/';
+const url = process.env.SAUCE_URL!;
+// const url = 'https://www.saucedemo.com/';
 
 test('Sauce demo WF', { tag: '@sauce' }, async ({ page }) => {
     await sauceDemoSteps.checkSaucedemoHome(page, url);
