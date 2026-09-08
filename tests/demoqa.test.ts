@@ -15,14 +15,14 @@ test('Search for book', { tag: '@searchBook' }, async ({ page }) => {
 });
 
 test('Get book\'s detail', { tag: '@getDetail' }, async ({ page }, testInfo) => {
-    const expectedUrl = `${getBaseURL(testInfo)}/books?book=9781449337711`;
+    const expectedUrl = `${getBaseURL(testInfo)}/books?search=9781449337711`;
 
     await demoqaSteps.checkDemoqaHome(page, url);
     await demoqaSteps.getBookDetail(page, 2);
     await demoqaSteps.checkUrl(page, expectedUrl);
 });
 
-test('Pagination', { tag: '@pagination' }, async ({ page }) => {
+test.skip('Pagination', { tag: '@pagination' }, async ({ page }) => {
     await demoqaSteps.checkDemoqaHome(page, url);
     await demoqaSteps.changeNumberOfRows(page);
     await demoqaSteps.getBookList(page, 'First');

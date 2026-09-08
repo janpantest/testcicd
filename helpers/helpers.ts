@@ -1,7 +1,6 @@
-import { Locator, TestInfo } from '@playwright/test';
+import { expect, Locator, TestInfo } from '@playwright/test';
 
-
-export async function clickIfElementExist(locator: Locator): Promise<void> {
+export async function clickIfElementVisible(locator: Locator): Promise<void> {
     const elementVisible = await isElementVisible(locator);
     if (elementVisible) {
         await locator.click();
@@ -27,9 +26,9 @@ export async function clickIfElementClickable(locator: Locator): Promise<void> {
 
 export async function isButtonClickable(locator: Locator, timeout?: number): Promise<boolean> {
     try {
-        const isEnabled = await locator.isEnabled();
-        return isEnabled;
-    } 
+        await expect(locator).toBeEnabled({ timeout: timeout ?? 5000 });
+        return true;
+    }
     catch {
         return false;
     }
